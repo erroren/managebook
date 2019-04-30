@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('button').click(function () {
+                $.ajax({
+                    url:'/booksys/ajaxajax/',
+                    type:'get',
+                    data:{'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()},
+                    success:function (data) {
+                        console.log(data)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <button>点击</button>
+    <span></span>
+
+</body>
+</html>

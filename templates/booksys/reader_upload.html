@@ -1,0 +1,10 @@
+{% extends 'booksys/base.html' %}
+
+{% block body %}
+    <form action="{% url 'booksys:upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        图片名: <input type="text" name="name" ><br>
+        选择图片:<input type="file" name="image"><br>
+        <input type="submit" value="上传">
+    </form>
+{% endblock %}

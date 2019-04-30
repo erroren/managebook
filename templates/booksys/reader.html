@@ -1,0 +1,12 @@
+{% extends "booksys/base.html" %}
+{% block title %} 欢迎使用 {% endblock %}
+{% block link %} 
+	<a href="{% url 'booksys:exit' %}"> 注销[{{user.username}}] </a> |
+	<a href="{% url 'booksys:query' user.id %}"> 查询 </a> |
+	<a href="{% url 'booksys:queryinfo' user.id %}"> 查看个人信息 </a> |
+	<a href="{% url 'booksys:history' user.id %}"> 查看阅读记录 </a>
+{% endblock %}
+
+{% block body %}
+	<h2> 欢迎使用 </h2>
+{% endblock %}

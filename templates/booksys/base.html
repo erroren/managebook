@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block style %}{% endblock %}
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        {% block jquery %}{% endblock %}
+    </script>
+</head>
+<body>
+    <div class=page>
+      <h1>图书管理系统</h1>
+      <div class=navigation>
+        {% block link %}{% endblock %}
+      </div>
+      <div class=body>
+        {% block body %}{% endblock %}
+       </div>
+      <div class=footer>
+         &mdash; 河南大学
+      </div>
+    </div>
+</body>
+</html>

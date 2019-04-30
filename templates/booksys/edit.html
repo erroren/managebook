@@ -1,0 +1,22 @@
+{% extends 'booksys/base.html' %}
+{% block style %}
+    <script type="text/javascript" src="/static/tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript">
+        tinyMCE.init({
+            'mode':'textareas',
+            'theme':'advanced',
+            'width':650,
+            'heigh':300
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <form action="{% url 'booksys:editor' %}"  method="post">
+        {% csrf_token %}
+        文本标题:<input type="text" name="name"><br>
+        文本内容: <br><textarea name="content" id="" cols="30" rows="10"></textarea><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        <a href="{% url 'booksys:index' %}">返回</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "booksys/base.html" %}
+{% block title%} 读者登录 {% endblock%}
+{% block jquery %}
+    $(function(){
+        $('#image').click(function(){
+            this.src = '/booksys/verify/'+'?time='+new Date().getTime()
+        })
+    })
+{% endblock %}
+
+{% block link%}
+	<a href="{% url 'booksys:index' %}"> 返回   </a>|
+	<a href="{% url 'booksys:register' %}"> 注册 </a>
+{% endblock%}
+{% block body %}
+	<h2> 读者登录 </h2>
+	{% if error %}
+	<div class = error>
+	  <strong>{{error}}</strong>
+	</div>
+	{% endif%}
+	<form action="{% url 'booksys:loginhandler' %}" method=post>
+      {% csrf_token %}
+	  <dl>
+	    <dt>用户名: </dt>
+	    <dd><input type=text name=username size=30 value=""> </dd>
+	    <dt>密码:	 </dt>
+	    <dd><input type=password name=password size=30> </dd>
+        <dt><img id='image' src="/booksys/verify/" alt="加载失败"></dt>
+        <dd><input type="text" name="verify"></dd>
+	  </dl>
+	  <div class=actions>
+	    <input type=submit value="登录">
+	  </div>
+	</form>
+{% endblock %}
