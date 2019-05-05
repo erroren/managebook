@@ -237,6 +237,15 @@ def ajaxajax(request):
     return HttpResponse("success")
 
 
+def checkuser(request):
+    username = request.POST['username']
+    user = StudentUser.objects.filter(username=username).first()
+    if user is None:
+        return HttpResponse("Account is not exist")
+    else:
+        return HttpResponse("Verify success")
+
+
 def verify(request):
     # 定义变量，用于画面的背景色、宽、高
     bgcolor = (random.randrange(20, 100),

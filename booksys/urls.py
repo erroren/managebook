@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^ajax/$', views.ajax, name='ajax'),
     url(r'^ajaxajax/$', views.ajaxajax, name='ajaxajax'),
     url(r'^verify/$', views.verify, name='verify'),
+    url(r'^checkuser/$', views.checkuser, name='checkuser'),
 ]
