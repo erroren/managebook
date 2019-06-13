@@ -139,3 +139,14 @@ EMAIL_HOST_USER = '18137128152@163.com' #发送邮件的邮箱地址
 EMAIL_HOST_PASSWORD = 'qikuedu'
 # 用来显示 发送者
 DEFAULT_FROM_EMAIL = 'zzy0371 <18137128152@163.com>'
+
+
+
+# 缓存
+CACHES = {
+    "default": {
+        "BACKEND": "redis_cache.cache.RedisCache",
+        "LOCATION": "localhost:6379",
+        'TIMEOUT': 60,
+    },
+}

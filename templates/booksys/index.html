@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    {% load cache %}
     <h2>欢迎使用</h2>
     <div id="myCarousel" class="carousel slide">
         <!-- 轮播（Carousel）指标 -->
@@ -46,11 +47,13 @@
         </a>
     </div>
     <div>
+        {% cache 100 messages %}
         {% for mes in messages %}
             <span><strong>标题:</strong></span>{{ mes.mtitle }}<br>
             <span><strong>文本内容:</strong></span>{{ mes.content|safe }}
         {% empty %}
         {% endfor %}
+        {% endcache %}
         <a href="{% url 'booksys:editor' %}">添加内容</a><br>
     </div>
 {% endblock %}

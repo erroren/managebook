@@ -7,10 +7,11 @@ from django.core.mail import send_mail,send_mass_mail,EmailMultiAlternatives
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, SignatureExpired, BadSignature
 import random, io
 from PIL import Image, ImageDraw, ImageFont
+from django.views.decorators.cache import cache_page
 # Create your views here.
 
 
-
+@cache_page(60*2)
 def index(request):
     imglist = Hotpic.objects.all().order_by('index')
     messages = Message.objects.all()
